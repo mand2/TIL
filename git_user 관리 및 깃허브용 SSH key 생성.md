@@ -179,3 +179,5 @@ $ clip < ~/.ssh/id_rsa_me.pub
 #### 그 외
 
 다른 repository에도 local user를 설정해줘야 github에 commit할 때 user가 정확하게 세팅된다. local user가 없으면 global user로 들어가서 다른 사람이 commit한 거로 뜨게 됨.
+
+![TEST]( https://github.com/mand2/notes/tree/72fc9bc370242c9638ab0c56b23df2b760d7480c/images/20200428_01.png)
