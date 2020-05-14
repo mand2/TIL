@@ -93,6 +93,34 @@ pom.xml에 dependency 추가한다. 예를들어 `ny-demo-api.jar`를 모듈로 
 
 
 
+### 7 다른 방법
+
+```xml
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-install-plugin</artifactId>
+    <version>2.5.2</version>
+    <executions>
+        <execution>
+            <id></id>
+            <phase>clean</phase>
+            <configuration>
+                <file>${basedir}/lib/{}.jar</file>
+                <repositoryLayout>default</repositoryLayout>
+                <groupId></groupId>
+                <artifactId></artifactId>
+                <version></version>
+                <packaging>jar</packaging>
+                <generatePom>true</generatePom>
+            </configuration>
+            <goals>
+                <goal>install-file</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
+
 
 
 
