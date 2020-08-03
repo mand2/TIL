@@ -82,7 +82,7 @@ RearView의 값을 알고 싶다면
 
 
 
-그 중에서 idVendor, passwd_Aka, test.FiveStar[1], test.OneStar[0] 값만 나오게 하고 싶다면 
+그 중에서 id, test.FiveStar[1], test.OneStar[0] 값만 나오게 하고 싶다면 
 
 ```java
 class DynamoDBTest {
@@ -131,14 +131,16 @@ table                 :::
     "OneStar" : [ "Terrible product! Do not buy this." ],
     "FiveStar" : [ "Do yourself a favor and buy this." ]
   },
-  "idVendor" : "mand2"
+  "id" : "mand2"
 }
 ```
 
 > retrieve 한 값 중 test 의 전체 값을 가져오고 싶을 때
 
 ```java
-item.get("test");
+// item.get("attributeName");
+logger.info("test                  :::" + item.get("test"));
+
 > {OneStar=[Terrible product! Do not buy this.], FiveStar=[Excellent! Can't recommend it highly enough! Buy it!, Do yourself a favor and buy this.]}
 ```
 
@@ -147,6 +149,10 @@ item.get("test");
 ```java
 Map<String, Object> map = (Map<String, Object>) item.get("test");
 String five = (String) ((List) map.get("FiveStar")).get(1);
+
+logger.info("test.FiveStar         :::" + five);
+
+> Do yourself a favor and buy this.
 ```
 
 
