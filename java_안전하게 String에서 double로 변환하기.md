@@ -49,11 +49,12 @@ assertEquals(-1000.57, decimal.doubleValue(), 0.000001);
 
 Similar to the *Double.valueOf*, the ***DecimalFormat.parse* method returns a *Number***, which we can convert to a primitive *double* using the *doubleValue* method. Additionally, we use the *setParseBigDecimal* method to force *DecimalFormat.parse* to return a *BigDecimal*.
 
-Usually, the *DecimalFormat* is more advanced than we require, thus, we should favor the *Double.parseDouble* or the *Double.valueOf* instead.
+> Usually, the DecimalFormat is more advanced than we require, thus, we should favor the Double.parseDouble or the Double.valueOf instead.
+
+`코멘트` : DecimalFormat은 엑셀의 셀형식 지정과 비슷한 개념임. 형식을 갖춘 값을 만들고 싶다면 쓰면 됨. 형식 지정 없이 그냥 double 형으로만 갖고오고 싶다면, *Double.parseDouble* or the *Double.valueOf* 을 사용하길 바람. Double.parseDouble 또한 numberformatexception 이었나.. 예외 처리될 수 있음.
+
+
+
+
 
 To learn more about *DecimalFormat*, please check [a practical guide to *DecimalFormat*](https://www.baeldung.com/java-decimalformat).
-
-
-
-
-
