@@ -32,7 +32,7 @@ queryDSL은 수에 관련된 형태는 다 wrapper class 형으로 갖고 있음
 - `sum()`
 - `as` alias 설정을 하지 않으면 QueryDSL에서 매핑 오류 난다.
 
-
+<br><br>
 
 ### 2.4 예제 (2.1 + 2.3)
 
@@ -55,11 +55,41 @@ SUM(
 // java _ queryDSL
 // 값이 커질 수 있으므로 p 값은 long 형태로 받는다.
 new CaseBuilder()
-      .when(ci.height.multiply(ci.width).castToNum(Long.TYPE)
-              .loe(50273600L)
-          .then(ci.duration.castToNum(Long.TYPE))
+      .when(ci.height.multiply(ci.width).castToNum(Long.class)
+              .loe(50273600L))
+          .then(ci.duration.castToNum(Long.class))
           .otherwise(0L)
           .sum()
       .as("sDuration")
+```
+
+<br><br>
+
+### 2.4 count(distinct a)
+
+```java
+Qtable.column.countDistinct().as("alias")
+```
+
+<br><br>
+
+### 2.5 where 조건절
+
+where절을 추가할 때 A인 경우에만 추가하는 queryDsl이 있다.
+
+```
+예제
+```
+
+- Request의 시작 지점(`start`)이 `831240000L`보다 클 때에만 where절에 `ci.duration > 0` 조건을 추가한다.
+
+```java
+public BooleanBuilder conditionWhere(Request request) {
+    BooleanBuilder builder = new BooleanBuilder();
+    if (831240000L < request.getStart())) {
+        builder.and(ci.duration.gt(0));
+    }
+    return builder;
+}
 ```
 
