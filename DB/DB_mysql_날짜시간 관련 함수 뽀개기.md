@@ -46,12 +46,67 @@ mysql> SELECT SYSDATE(), SLEEP(2), SYSDATE();
 <br>
 <br>
 
-## 2. 그럼 timestamp는 뭐야?
+## 2. 그럼 TIMESTAMP()는 뭐야?
 
-timestamp 는 `NOW()`의 영향을 받는다. SYSDATE() 영향❌❌❌
+TIMESTAMP()는 `NOW()`의 영향을 받는다. SYSDATE() 영향❌❌❌   
+- `TIMESTAMP(expr)`    
+  DATE타입이나 DATETIME 타입을 입력 받아서 DATETIME 형태로 반환.   
+- `TIMESTAMP(expr1, expr2)`       
+  1) 첫번째 인자 값에 2)두번째 인자값을 더한 3) 값을 반환. 
+
+
+
+```mysql
+SELECT TIMESTAMP('2003-12-31');
+-> '2003-12-31 00:00:00'
+SELECT TIMESTAMP('2003-12-31 13:10:20','22:00:00');
+-> '2004-01-01 11:10:20'
+```
+
+
+
+
+
+<br>
+<br>
+
+## 3. 그럼 CURDATE(), CURTIME()은 뭐야?
+
+쉽게 생각하면 TIMESTAMP() 함수를 사용했을 때, 현재날짜를 CURDATE(), 현재시각을 CURTIME()으로 생각하면 된다.
+
+`CURDATE()` 가 문맥상 String으로 사용되었다면 'YYYY-MM-DD'형태로, 숫자형으로 사용되었다면 'YYYYMMDD' 형태로 반환한다.
+
+```mysql
+SELECT CURDATE();     # String
+-> '2008-06-13'
+SELECT CURDATE() + 0; # Numeric
+-> 20080613
+```
+
+`CURTIME()` 또한 String, Numeric(숫자형) 에 따라 반환형태가 다르다. _hh:mm:ss_ 혹은 _hhmmss_로 반환하게 됨. DB세팅할 때 정해진 session time zone에 따라 반환값이 정해지며, 소수점 6자리 내까지 반환하게 되어있다면 그 반환형태까지 따르게 된다. (소수점 4자리까지 반환하게 되어있다면 👉 204301.0012와 같이 나옴.) 
+
+
+
+### 👉 같은 뜻을 가진 함수
+
+- CURDATE()
+  - CURRENT_DATE
+  - CURRENT_DATE()
+- CURTIME()
+  - CURRENT_TIME
+  - CURRENT_TIME()
+- NOW()
+  - CURRENT_TIMESTAMP
+  - CURRENT_TIMESTAMP()
+
+
 
 
 
 
 
 ... 추가필요 ....
+
+시간 계산 방법,    -> [stackoverflow](https://stackoverflow.com/questions/8544438/select-records-from-now-1-day)      
+curtime curdate timestamp (등...)는 db에 얼마나 부하를 줄까?    
+그 외 주의사항..?!?! 
