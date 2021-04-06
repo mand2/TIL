@@ -9,6 +9,8 @@
 
 [TOC]
 
+
+
 ## [BE](https://github.com/mand2/TIL/tree/master/BE)
 
 backend 개발에 필요한 기본 개념들. 개발상식.
@@ -59,10 +61,11 @@ Python 관련 기본 문법 정리
 
 <br>
 
+## [자료구조](https://github.com/mand2/TIL/tree/master/DataStructure/README.md)
 
+자료구조 정리
 
-
-
+<br>
 
 
 
