@@ -13,26 +13,28 @@ implementation("com.amazonaws:aws-java-sdk-s3:1.12.52")
 
 
 2. 버전관리 용 세팅  
-혹은 aws-sdk 라이브러리를 많이 사용한다면 한번에 버전관리를 할 수 있다(관련 [docs](https://docs.aws.amazon.com/ko_kr/sdk-for-java/v1/developer-guide/setup-project-gradle.html)).   
-- 코틀린 4.6 버전 이상:
-```kotlin
-dependencies {
-    implementation("com.amazonaws:aws-java-sdk-bom:1.12.52")
-    implementation("software.amazon.awssdk:s3")
-}
-```
-
-- 코틀린 4.6 버전 이전:
-```kotlin
-dependencyManagement {
-    imports {
-        mavenBom("software.amazon.awssdk:bom:1.12.52")
-    }
-}
-dependencies {
-    implementation("software.amazon.awssdk:s3")
-}
-```
+혹은 aws-sdk 라이브러리를 많이 사용한다면 한번에 버전관리를 할 수 있다
+(관련 [docs](https://docs.aws.amazon.com/ko_kr/sdk-for-java/v1/developer-guide/setup-project-gradle.html)).  
+[bom 버전 확인하러 가기](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-bom)  
+    - 코틀린 4.6 버전 이상:
+        ```kotlin
+        dependencies {
+            implementation("com.amazonaws:aws-java-sdk-bom:1.12.52")
+            implementation("software.amazon.awssdk:s3")
+        }
+        ```
+    
+    - 코틀린 4.6 버전 이전:
+        ```kotlin
+        dependencyManagement {
+            imports {
+                mavenBom("software.amazon.awssdk:bom:1.12.52")
+            }
+        }
+        dependencies {
+            implementation("software.amazon.awssdk:s3")
+        }
+        ```
 
 
 
