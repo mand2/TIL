@@ -62,7 +62,7 @@ fun createS3DirectoryClient(accessKeyId: String, secretAccessKey: String, region
 
 ### 2. S3 버킷에 업로드하는 부분 만들기 - basic
 1. 먼저 `local_path` 가 /d/test/uploader/ 라고 하자.   
-uploader 내부에는 수많은 파일이 있고, 각 파일마다 2mb 를 넘지 않늗다고 가정.  
+uploader 내부에는 수많은 파일이 있고, 각 파일마다 2mb 를 넘지 않는다고 가정.  
 (만약 파일 하나 하나의 사이즈가 크다면 다른 방식으로 해야 됨. 하단 참고부분에서 `멀티파트 업로드를 사용한 객체 업로드` 부분을 참고할 것.)  
 <br>
 
