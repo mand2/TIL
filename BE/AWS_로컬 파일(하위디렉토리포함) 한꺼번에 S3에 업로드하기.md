@@ -60,7 +60,7 @@ fun createS3DirectoryClient(accessKeyId: String, secretAccessKey: String, region
 ```
 <br>
 
-### 2. S3 버킷에 업로드하는 부분 만들기
+### 2. S3 버킷에 업로드하는 부분 만들기 - basic
 1. 먼저 `local_path` 가 /d/test/uploader/ 라고 하자.   
 uploader 내부에는 수많은 파일이 있고, 각 파일마다 2mb 를 넘지 않늗다고 가정.  
 (만약 파일 하나 하나의 사이즈가 크다면 다른 방식으로 해야 됨. 하단 참고부분에서 `멀티파트 업로드를 사용한 객체 업로드` 부분을 참고할 것.)  
@@ -116,6 +116,87 @@ fun uploadDirectoryOfClient(s3DirectoryClient:TransferManager, defaultPath: Stri
 <br>
 <br>
 
+
+### 3. S3 버킷에 업로드하는 부분 만들기 - advanced
+위에 코드를 실행해보면 답답할 것이다. 얼마나 완료되었는지 확인을 못하므로..🤔   
+그러니 로그를 같이 남겨서 확인할 수 있게 해주자
+
+
+```kotlin
+@JvmField val pathRegEx: Regex = Regex("^(/)|(/)$")
+
+fun uploadDirectoryOfClient(s3DirectoryClient:TransferManager, defaultPath: String) {
+    // 로컬 디렉토리 세팅
+    val localPath = "/d/test/uploader/"
+    val localDirectory = File(localPath)
+    
+    // s3 객체 경로 세팅
+    val bucketName = "mand2"
+    val s3Path = pathRegEx.replace(defaultPath, "")
+    val s3UploadPath = "$s3Path/upload/210831"
+
+    var uploadProgressBar = StringBuffer() // 업로드 진행상황 log
+    try {
+        // 실제 업로드
+        val uploadDirectory: MultipleFileUpload = s3DirectoryClient.uploadDirectory(
+                bucketName,
+                s3UploadPath,
+                localDirectory,
+                true
+        )
+        
+        uploadProgressBar
+                .append("[Running] upload progressing... start")
+                .appendLine()
+
+        while (!uploadDirectory.isDone) {
+            try {
+                Thread.sleep(1000)
+            } catch (e: InterruptedException) {
+                return;
+            }
+            val progress: TransferProgress = uploadDirectory.progress
+            val pct: Double = progress.percentTransferred
+            val pctFormat = DecimalFormat("##0.00")
+            uploadProgressBar
+                    .append("[Running] ${pctFormat.format(pct)}% upload progressing...")
+                    .appendLine()
+        }
+
+        logger.info("[Uploader] Upload Directory to S3 Success !")
+        
+    } catch (e: AmazonServiceException) {
+        logger.error("Amazon service error: {}, {}", e.message, e)
+    } catch (e: AmazonClientException) {
+        logger.error("Amazon client error: {}, {}", e.message, e)
+    } catch (e: InterruptedException) {
+        logger.error("Transfer interrupted: {}, {}", e.message, e)
+    } finally {
+        s3DirectoryClient.shutdownNow()
+        logger.info(uploadProgressBar.toString())
+    }
+}
+```
+
+<br>
+<br>
+
+결과 예시
+```text
+[Running] upload progressing... start
+[Running] 0.35% upload progressing...
+[Running] 0.70% upload progressing...
+[Running] 1.06% upload progressing...
+[Running] 1.44% upload progressing...
+[Running] 1.80% upload progressing...
+[Running] 2.15% upload progressing...
+[Running] 2.52% upload progressing...
+[Running] 6.81% upload progressing...
+[Running] 11.00% upload progressing...
+[Running] 15.00% upload progressing...
+[Running] 19.12% upload progressing...
+[Running] 23.31% upload progressing...
+```
 
 
 
