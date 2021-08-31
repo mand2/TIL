@@ -13,7 +13,7 @@
 
 - [BE](BE)
 - [DB](DB)
-- [IDE_기타][IDE_기타]
+- [IDE_기타](IDE_기타)
 - [Java](Java)
 - [Javascript](Javascript)
 - [Linux](Linux)
