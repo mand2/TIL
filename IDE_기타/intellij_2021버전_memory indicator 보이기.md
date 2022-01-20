@@ -9,6 +9,6 @@
 
 ![before enable indicator](/images/IDE_기타/memory_indicator_1.png)
 
-![after enable indicator](/images/IDE_기타/memory_indicator_1.png)
+![after enable indicator](/images/IDE_기타/memory_indicator_2.png)
 
 
