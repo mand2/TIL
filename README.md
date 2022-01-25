@@ -15,6 +15,7 @@
 - [DB](DB)
 - [IDE_기타](IDE_기타)
 - [Java](Java)
+- [Kotlin](Kotlin)
 - [Javascript](Javascript)
 - [Linux](Linux)
 - [Python](Python)
@@ -51,7 +52,14 @@ backend 개발 할 때 알게된 개념들 중 DB 파트만 따로.
 
 ## [Java](https://github.com/mand2/TIL/tree/master/Java)
 
-Java, Spring, Spring Boot, Maven, etc...
+Java, Spring, Spring Boot, Maven, etc... (a.k.a. 자프링)
+
+<br>
+
+
+## [Kotlin](https://github.com/mand2/TIL/tree/master/Kotlin)
+
+Kotlin, Spring, Spring Boot, Maven, etc... (a.k.a. 코프링)
 
 <br>
 
