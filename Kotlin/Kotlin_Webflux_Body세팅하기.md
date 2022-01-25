@@ -22,10 +22,10 @@ Http Request는 `HandlerFunction` 으로 핸들링하며,
 2. 있으면 해당 handler 함수 실행한다.
 
 
-- HandlerFunction = `@RequestMapping` 메서드의 Body에 해당한다. (GET에도 body가 들어갈 수 있다 by. 김영한님 http 네트워크 수업)
+- HandlerFunction = `@RequestMapping` 메서드의 작동방식과 같다.
 - RouterFunction = `@RequestMapping` 에 행동(method를 얘기하는 걸까?)까지 추가됨 (어노테이션기반에선 data 만 주고받음.)
 router function builder 로 router 설정을 하는데,  
-예) `GET`메서드: 아래와 같이 `GET(String=uri, HandlerFunction)`형식으로 세팅을 할 수 있다.  
+예) `GET`메서드: 아래와 같이 `GET(String=uri, HandlerFunction)`형식으로 세팅을 할 수 있다. HandlerFunction은 람다 방식으로 구성해야 한다 
 ```kotlin
 val route = coRouter {
     GET("/hello-world", accept(TEXT_PLAIN)) { // HandlerFunction 부분. 함수라 {}로 표현.
@@ -52,8 +52,10 @@ val string = request.awaitBody<String>() // 간단버전
 ```
 2. flux / mono + content_type{json}
 ```kotlin
+// flux
 val people = request.body(BodyExtractors.toFlux(Person::class.java)).asFlow()
 val people = request.bodyToFlow<Person>() // 간단버전
+// mono + json
 val people = request.body(BodyExtractors.toMono(Person::class.java)).awaitFirst()
 ```
 flux 에선 JSON / XML과 같은 직렬화된 폼을 request 로 받아야 한다.
