@@ -14,74 +14,76 @@
 \
 
 
-## [BE](https://github.com/mand2/TIL/tree/master/BE)
+## [be](be/ "mention")
 
 backend 개발에 필요한 기본 개념들. 개발상식.
 
-\
 
 
-## [DB](https://github.com/mand2/TIL/tree/master/DB)
+
+
+## [db](basics/db/ "mention")
 
 backend 개발 할 때 알게된 개념들 중 DB 파트만 따로.
 
 \
 
 
-## [IDE\_기타](https://github.com/mand2/TIL/tree/master/IDE\_%EA%B8%B0%ED%83%80)
+## [ide\_](ide\_/ "mention")
 
 사용했던 IDE settings 관련.
 
-\
 
 
-## [Java](https://github.com/mand2/TIL/tree/master/Java)
+## [java](languages/java/ "mention")
 
 Java, Spring, Spring Boot, Maven, etc... (a.k.a. 자프링)
 
 \
 
 
-## [Kotlin](https://github.com/mand2/TIL/tree/master/Kotlin)
+## [kotlin](languages/kotlin/ "mention")
 
 Kotlin, Spring, Spring Boot, Maven, etc... (a.k.a. 코프링)
 
 \
 
 
-## [Javascript](https://github.com/mand2/TIL/tree/master/Javascript)
+## [javascript](languages/javascript/ "mention")
 
 Javascript 관련 기본 문법 정리
 
-### [react](https://github.com/mand2/TIL/tree/master/Javascript/react)
+
+
+## [react](languages/javascript/react/ "mention")
 
 react 기본 개념/문법 정리
 
 \
 
 
-## [Linux](https://github.com/mand2/TIL/tree/master/Linux)
+## [linux](basics/linux/ "mention")
 
 Linux 관련 기본 개념 정리
 
 \
 
 
-## [Python](https://github.com/mand2/TIL/tree/master/Python)
+## [python](languages/kotlin/python/ "mention")
 
 Python 관련 기본 문법 정리
 
 \
 
 
-## [자료구조](https://github.com/mand2/TIL/tree/master/DataStructure/README.md)
+## [DataStructure](DataStructure/ "mention")
 
 자료구조 정리
 
 \
 
 
-## [CS](https://github.com/mand2/TIL/tree/master/CS/)
+## [cs](basics/cs/ "mention")
 
 CS 정리
 
