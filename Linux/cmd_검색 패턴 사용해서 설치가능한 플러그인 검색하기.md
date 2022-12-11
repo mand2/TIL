@@ -4,9 +4,10 @@
 $ yarn list --pattern [글자] --depth 1
 ```
 
-<br>
+\
 
-예 ) 
+
+예 )
 
 ```
 $ yarn list --pattern @babel/plugin --depth 1

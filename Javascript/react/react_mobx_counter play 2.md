@@ -1,6 +1,6 @@
-### mobx 사용하기 _ counter play 2
+# react\_mobx\_counter play 2
 
-
+#### mobx 사용하기 \_ counter play 2
 
 ```
 -RootStore
@@ -19,17 +19,17 @@
 
 ```
 
-<br>
+\
+\
 
-<br>
 
-### 세부참조는 최대한 늦게
+#### 세부참조는 최대한 늦게
 
 변동이 일어날 수 있는 count 값의 세부참조를 우리는 BasketItem 컴포넌트 내부에서 하게 된다면, 더 높은 성능으로 컴포넌트를 업데이트 할 수 있습니다. 여기서 item.name 값은 바뀌지 않기 때문에 key 설정 부분에선 문제가 되지 않습니다.
 
-#### 기존 BasketItemList
+**기존 BasketItemList**
 
-```react
+```
 const itemList = items.map(item => (
     <BasketItem
       name={item.name}
@@ -41,9 +41,9 @@ const itemList = items.map(item => (
 ));
 ```
 
-#### 성능최적화로 바뀐 BasketItemList,,
+**성능최적화로 바뀐 BasketItemList,,**
 
-```react
+```
 const itemList = items.map(item => (
     <BasketItem
       item={item}
@@ -53,13 +53,14 @@ const itemList = items.map(item => (
 ));
 ```
 
-<br>
+\
 
-### 함수는 미리 바인딩하고, 파라미터는 내부에서 넣어주기
 
-#### ShopItemList
+#### 함수는 미리 바인딩하고, 파라미터는 내부에서 넣어주기
 
-```react
+**ShopItemList**
+
+```
 const ShopItemList = ({ onPut }) => {
   const itemList = items.map(item => (
     <ShopItem {...item} key={item.name} onPut = {onPut}/>
@@ -68,10 +69,11 @@ const ShopItemList = ({ onPut }) => {
 };
 ```
 
+\
+\
 
 
-<br><br>
-### 변경된 구조
+#### 변경된 구조
 
 ```
 -RootStore
@@ -90,15 +92,4 @@ const ShopItemList = ({ onPut }) => {
 -App
 ```
 
-<br>
-
-
-
-
-
-
-
-
-
-
-
+\

@@ -1,16 +1,17 @@
-### mobx 사용하기 _ counter play 1
+# mobx 사용하기 \_ counter play 1
 
 참고 블로그 URL [바로가기](https://velog.io/@velopert/MobX-2-%EB%A6%AC%EC%95%A1%ED%8A%B8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90%EC%84%9C-MobX-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-oejltas52z)
 
 > * mobx 로 상태 관리 시작-
 > * inject 를 사용하여 store를 component에 주입해준다.
 >
-> src/index.js 에서 const로 'counter' 라 명명했기 때문에 inject 시 counter 라고 써줘야 한다.   
-> CounterStore / counterStore 등 바로 store에서 주입  ㄴㄴ임 아직은.
+> src/index.js 에서 const로 'counter' 라 명명했기 때문에 inject 시 counter 라고 써줘야 한다.\
+> CounterStore / counterStore 등 바로 store에서 주입 ㄴㄴ임 아직은.
 
-<br>
+\
 
-```react
+
+```
 src\index.js
 import { Provider } from 'mobx-react'; // MobX 에서 사용하는 Provider
 import CounterStore from './stores/CounterStore'; // 방금 만든 스토어 불러와줍니다.
@@ -28,15 +29,13 @@ ReactDOM.render(
 serviceWorker.unregister();
 ```
 
+\
+\
 
 
+## src\stores\CounterStore.js
 
-
-<br><br>
-
-#### src\stores\CounterStore.js
-
-```react
+```
 import { observable, action } from 'mobx';
 
 export default class CounterStore {
@@ -52,15 +51,13 @@ export default class CounterStore {
 }
 ```
 
+\
+\
 
 
+## src\Counter.js
 
-
-<br><br>
-
-#### src\Counter.js
-
-```react
+```
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 
@@ -82,4 +79,3 @@ class Counter extends Component {
 
 export default Counter;
 ```
-
