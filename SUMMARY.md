@@ -78,6 +78,7 @@
     * [yarn 명령어 모음](languages/javascript/react/react\_yarn.md)
     * [yarn 버전 자체 업데이트](languages/javascript/react/react\_yarn-1.md)
     * [리액트에서 뒤로가기 버튼 따로 만들기](languages/javascript/react/react\_.md)
+  * [promise_allSettled.md](languages/javascript/promise\_allSettled.md.md)
   * [js\_timezone UTC 설정\_어제 날짜 가져오기](languages/javascript/js\_timezone-utc-\_.md)
   * [js\_구조분해할당\_destructuring](languages/javascript/js\_-\_destructuring.md)
   * [프론트엔드 개발환경의 이해: NPM](languages/javascript/\_npm\_.md)
