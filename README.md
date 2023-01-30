@@ -69,7 +69,7 @@ Linux 관련 기본 개념 정리
 \
 
 
-## [python](languages/kotlin/python/ "mention")
+## [python](languages/python/ "mention")
 
 Python 관련 기본 문법 정리
 
